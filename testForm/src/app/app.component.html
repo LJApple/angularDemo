@@ -1,0 +1,19 @@
+<!-- 
+  1'模板式驱动方式
+  表单的数据模型是通过组件模板的相关指令来定义的，因为使用定义表单数据模型时，我们会受限与html语法，所以模板驱动方式只使用与一些简单的场景
+  2‘相应式表单，通模型，过编写TypeScript代码而不是Html代码来创建一个底层的数据mu'xing
+  在这个模型定义好后裔，使用一些特定的指令，将模板的html元素与底层的数据模型连接在一起。
+ -->
+ <!-- 
+   NgForm：自动的加在form标签上
+  -->
+  <!-- <form action="/regist" method="post">
+    <div>用户名：<input type="text" required pattern="[a-zA-Z0-9]"></div>
+    <div>手机号：<input type="text"></div>
+    <div>密码:<input type="password"></div>
+    <div> 确认密码：<input type="password"></div>
+    <button type="submit">注册</button>
+  </form> -->
+  <!-- <app-template-form></app-template-form> -->
+  <!-- <app-reactive-form></app-reactive-form> -->
+  <app-reactive-regist></app-reactive-regist>
