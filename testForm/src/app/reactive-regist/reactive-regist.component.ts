@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,FormArray,FormBuilder,AbstractControl,Validators} from "@angular/forms";
-import { equalValidator, mobileVlidator} from "../validator/validators";
+import { equalValidator, mobileVlidator,mobileAsyncVlidator} from "../validator/validators";
 @Component({
   selector: 'app-reactive-regist',
   templateUrl: './reactive-regist.component.html',
@@ -12,7 +12,7 @@ export class ReactiveRegistComponent implements OnInit {
     this.formModel = fb.group({
       // ["","",""]  第一个元素表单的初始值，表单的校验方法，异步的校验方法
       username:['', [Validators.required,Validators.minLength(6)]],
-      mobile:['',mobileVlidator],
+      mobile:['',mobileVlidator,mobileAsyncVlidator],
       passwordGroup:fb.group({
         password:['',Validators.minLength(6)],
         pconfirm:['']
