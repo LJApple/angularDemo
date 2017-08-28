@@ -1,16 +1,22 @@
 <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
   <div>用户名：<input formControlName="username" type="text"></div>
-  <div [hidden]="!formModel.hasError('required','username')">
+  <div [hidden]="formModel.get('username').valid || formModel.get('username').untouched">
+	 <div [hidden]="!formModel.hasError('required','username')">
     用户名式必填项
   </div>
   <div [hidden]="!formModel.hasError('minlength','username')">
     用户名最小长度是6
   </div>
-  <div>手机号：<input formControlName="mobile" type="number"></div>
-  <div [hidden]="!formModel.hasError('mobile','mobile')">
-    请输入正确的手机号
   </div>
-  <div formGroupName="passwordGroup">
+  
+	<div>手机号：<input formControlName="mobile" type="number"></div>
+  
+  <div [hidden]="formModel.get('mobile').valid || formModel.get('mobile').pristine">
+	  <div [hidden]="!formModel.hasError('mobile','mobile')">
+	    请输入正确的手机号
+	  </div>
+	</div>
+    <div formGroupName="passwordGroup">
     <div>密码:<input formControlName="password" type="password"></div>
     <div [hidden]="!formModel.hasError('minlength',['passwordGroup','password'])">
         密码最小长度是6
