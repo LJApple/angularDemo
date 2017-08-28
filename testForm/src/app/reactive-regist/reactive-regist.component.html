@@ -1,16 +1,18 @@
 <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
-  <div>用户名：<input formControlName="username" type="text"></div>
+  <div>用户名：<input formControlName="username" type="text" [class.hasError]="formModel.get('username').invalid && formModel.get('username').touched"></div>
   <div [hidden]="formModel.get('username').valid || formModel.get('username').untouched">
 	 <div [hidden]="!formModel.hasError('required','username')">
-    用户名式必填项
-  </div>
-  <div [hidden]="!formModel.hasError('minlength','username')">
-    用户名最小长度是6
-  </div>
+	    用户名式必填项
+	  </div>
+	  <div [hidden]="!formModel.hasError('minlength','username')">
+	    用户名最小长度是6
+	  </div>
   </div>
   
 	<div>手机号：<input formControlName="mobile" type="number"></div>
-  
+  <div [hidden]="!formModel.get('mobile').pending">
+	正在校验
+  </div>
   <div [hidden]="formModel.get('mobile').valid || formModel.get('mobile').pristine">
 	  <div [hidden]="!formModel.hasError('mobile','mobile')">
 	    请输入正确的手机号
